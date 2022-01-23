@@ -6,6 +6,7 @@ import AboutView from "./components/AboutView";
 import SearchView from "./components/SearchView";
 import { Switch, Route } from "react-router-dom";
 import MovieView from './components/MovieView';
+import NothingFound from "./components/NothingFound";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -28,9 +29,7 @@ function App() {
       <Navbar searchText={searchText} setSearchText={setSearchText} />
       <Switch>
         {/* <Route path='/' component={Home} /> */}
-        <Route path="/about">
-          <AboutView />
-        </Route>
+        <Route path="/about" component={AboutView} />
         <Route path="/" exact>
           <Home />
         </Route>
@@ -38,6 +37,7 @@ function App() {
           <SearchView keyword={searchText} searchResults={searchResults} />
         </Route>
         <Route path="/movies/:id" component={MovieView} />
+        <Route path="" component={NothingFound} />
       </Switch>
     </div>
   );
