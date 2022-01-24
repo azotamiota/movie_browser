@@ -37,17 +37,27 @@ const SearchView = ({ keyword, searchResults }) => {
     return <MovieCard movie={obj} key={i} />;
   });
 
-  if (resultsHtml.length === 0) {
-         resultsHtml = <h1 className="mt-5 text-center" style={{width: '70vw', height: '50vh'}}>Nothing <span className="badge bg-secondary">Found</span></h1>
-   
-  }
+  // if (resultsHtml.length === 0) {
+  //        resultsHtml = <h1 className="mt-5 text-center" style={{width: '70vw', height: '50vh'}}>Nothing <span className="badge bg-secondary">Found</span></h1>
+
+  // }
 
   return (
     <>
       <Hero text={title} />
       <div className="container">
-        
-            <div className="row">{resultsHtml}</div>
+        <div className="row">
+          {resultsHtml.length === 0
+            ? (resultsHtml = (
+                <h1
+                  className="mt-5 text-center"
+                  style={{ width: "70vw", height: "50vh" }}
+                >
+                  Nothing <span className="badge bg-secondary">Found</span>
+                </h1>
+              ))
+            : resultsHtml}
+        </div>
       </div>
       )
     </>
