@@ -1,12 +1,17 @@
+import Home from "./Home";
 import { useHistory, Link } from "react-router-dom";
 
 const Navbar = ({ searchText, setSearchText }) => {
-  
-  const history = useHistory()
+  const history = useHistory();
 
   const updateSearchText = (e) => {
-    history.push('/search');
+    history.push("/search");
     setSearchText(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log("clicked the button", history);
+    return <Home />;
   };
 
   return (
@@ -90,7 +95,11 @@ const Navbar = ({ searchText, setSearchText }) => {
               value={searchText}
               onChange={updateSearchText}
             />
-            <button className="btn btn-outline-success" type="submit" onClick='history'>
+            <button
+              className="btn btn-outline-success"
+              type="submit"
+              onClick={() => handleSubmit()}
+            >
               Search
             </button>
           </form>
