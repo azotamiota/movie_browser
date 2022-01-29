@@ -32,19 +32,14 @@ const MovieCard = ({ movie }) => {
 };
 
 const SearchView = ({ keyword, searchResults }) => {
-  const title = `You are searching for ${keyword}`;
+  console.log(searchResults, "are the search results");
   let resultsHtml = searchResults.map((obj, i) => {
     return <MovieCard movie={obj} key={i} />;
   });
 
-  // if (resultsHtml.length === 0) {
-  //        resultsHtml = <h1 className="mt-5 text-center" style={{width: '70vw', height: '50vh'}}>Nothing <span className="badge bg-secondary">Found</span></h1>
-
-  // }
-
   return (
     <>
-      <Hero text={title} />
+      <Hero text={`You are searching for ${keyword}`} />
       <div className="container">
         <div className="row">
           {resultsHtml.length === 0
@@ -57,9 +52,9 @@ const SearchView = ({ keyword, searchResults }) => {
                 </h1>
               ))
             : resultsHtml}
+          {/* {resultsHtml} */}
         </div>
       </div>
-      )
     </>
   );
 };

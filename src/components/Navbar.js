@@ -1,17 +1,17 @@
-import Home from "./Home";
 import { useHistory, Link } from "react-router-dom";
 
 const Navbar = ({ searchText, setSearchText }) => {
   const history = useHistory();
 
-  const updateSearchText = (e) => {
-    history.push("/search");
-    setSearchText(e.target.value);
-  };
+  // const updateSearchText = (e) => {
+  //   history.push("/search");
+  //   setSearchText(e.target.value);
+  // };
 
-  const handleSubmit = () => {
-    console.log("clicked the button", history);
-    return <Home />;
+  const updateSearchText = () => {
+    const $search = document.getElementById("search-input");
+    history.push("/search");
+    setSearchText($search.value);
   };
 
   return (
@@ -88,17 +88,18 @@ const Navbar = ({ searchText, setSearchText }) => {
           </ul>
           <form className="d-flex">
             <input
+              id="search-input"
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
-              value={searchText}
-              onChange={updateSearchText}
+              // value={searchText}
+              // onChange={updateSearchText}
             />
             <button
               className="btn btn-outline-success"
               type="submit"
-              onClick={() => handleSubmit()}
+              onClick={updateSearchText}
             >
               Search
             </button>
