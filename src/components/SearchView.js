@@ -41,19 +41,14 @@ const SearchView = ({ keyword, searchResults }) => {
     <>
       <Hero text={`You are searching for ${keyword}`} />
       <div className="container">
-        <div className="row">
-          {resultsHtml.length === 0
-            ? (resultsHtml = (
-                <h1
-                  className="mt-5 text-center"
-                  style={{ width: "70vw", height: "50vh" }}
-                >
-                  Nothing <span className="badge bg-secondary">Found</span>
-                </h1>
-              ))
-            : resultsHtml}
-          {/* {resultsHtml} */}
-        </div>
+        {resultsHtml.length === 0
+          ? (resultsHtml = (
+              <h1 className="m-5 text-center">
+                Nothing <span className="badge bg-secondary">Found</span>
+              </h1>
+            ))
+          : resultsHtml}
+        {/* {resultsHtml} */}
       </div>
     </>
   );
