@@ -4,7 +4,11 @@ const NothingFound = () => {
   return (
     <>
       <Hero text="404" />
-      <h1 className="text-center shadow m-4 p-3">Nothing found</h1>
+      <div className="container">
+        <h1 className="m-5 text-center">
+          Nothing <span className="badge bg-secondary">Found</span>
+        </h1>
+      </div>
     </>
   );
 };

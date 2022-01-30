@@ -37,7 +37,7 @@ function App() {
           <SearchView keyword={searchText} searchResults={searchResults} />
         </Route>
         <Route path="/movies/:id" component={MovieView} />
-        <Route path="*" component={NothingFound} />
+        <Route path="" component={NothingFound} />
       </Switch>
     </div>
   );
