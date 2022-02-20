@@ -93,8 +93,8 @@ const Navbar = ({ searchText, setSearchText }) => {
               type="search"
               placeholder="Search"
               aria-label="Search"
-              // value={searchText}
-              // onChange={updateSearchText}
+              value={searchText}
+              onChange={updateSearchText}
             />
             <button
               className="btn btn-outline-success"
